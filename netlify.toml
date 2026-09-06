@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Заголовки вынесены в public/_headers — оттуда они попадают в dist и работают
+# при обоих способах публикации, включая перетаскивание папки.

@@ -1,0 +1,17 @@
+# Netlify читает этот файл из корня опубликованной папки, поэтому он лежит в public/
+# и копируется в dist при сборке. В отличие от netlify.toml работает и при
+# публикации перетаскиванием папки, когда конфиг из корня проекта не попадает в деплой.
+
+# Имена файлов Vite содержат хеш и меняются при каждой пересборке — можно кэшировать навсегда
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/work/*
+  Cache-Control: public, max-age=2592000
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

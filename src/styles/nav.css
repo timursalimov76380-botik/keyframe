@@ -1,0 +1,217 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: var(--s-4) var(--gutter);
+  transition: padding 0.35s var(--ease-out), background-color 0.35s var(--ease-out);
+}
+
+.nav::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  background: rgba(5, 14, 13, 0.72);
+  backdrop-filter: blur(22px) saturate(150%);
+  border-bottom: 1px solid var(--line);
+  transition: opacity 0.35s var(--ease-out);
+}
+
+.nav[data-scrolled='true'] {
+  padding-block: var(--s-3);
+}
+
+.nav[data-scrolled='true']::after {
+  opacity: 1;
+}
+
+.nav__inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-6);
+}
+
+.nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+/* Ромб — то, чем ключевой кадр обозначается на таймлайне в любой программе анимации */
+.nav__mark {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  position: relative;
+  transform: rotate(45deg);
+  border: 1.5px solid var(--accent);
+  border-radius: 3px;
+  /* Отсвет 3D-объекта живёт даже в логотипе (принцип 10.7) */
+  box-shadow: 0 0 18px -2px rgba(0, 224, 192, 0.6);
+}
+
+.nav__mark::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 1px;
+  background: var(--accent);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.nav__link {
+  position: relative;
+  padding-block: 4px;
+  transition: color 0.2s var(--ease-out);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: right 0.3s var(--ease-out);
+}
+
+.nav__link:hover {
+  color: var(--ink);
+}
+
+.nav__link:hover::after {
+  right: 0;
+}
+
+.nav__side {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.lang {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(10, 24, 23, 0.6);
+  backdrop-filter: blur(14px);
+}
+
+.lang__btn {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  transition: color 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
+}
+
+.lang__btn[aria-pressed='true'] {
+  background: rgba(0, 224, 192, 0.14);
+  color: var(--accent);
+}
+
+.nav__cta {
+  padding: 11px 20px;
+  font-size: 14px;
+}
+
+.nav__burger {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 24, 23, 0.6);
+}
+
+.nav__burger span {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  background: var(--ink);
+  box-shadow: 0 -5px 0 var(--ink), 0 5px 0 var(--ink);
+}
+
+@media (max-width: 900px) {
+  .nav__links {
+    display: none;
+  }
+  .nav__burger {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav__cta {
+    display: none;
+  }
+}
+
+/* Полноэкранное мобильное меню, а не крошечный дропдаун */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  display: grid;
+  align-content: center;
+  gap: var(--s-6);
+  padding: var(--s-24) var(--gutter) var(--s-16);
+  background: rgba(3, 9, 8, 0.94);
+  backdrop-filter: blur(26px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease-out), visibility 0.3s;
+}
+
+.mobile-menu[data-open='true'] {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* :not(.btn) обязателен — иначе кнопка призыва получала шрифт пункта меню
+   в 8vw, текст переносился на две строки и прижимался к левому краю пилюли */
+.mobile-menu a:not(.btn) {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 8vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--s-4);
+}
+
+/* Размер тянется за шириной экрана, но верх и низ ограничены: снизу — чтобы
+   кнопка не терялась рядом с пунктами меню, сверху — чтобы «Обсудить проект»
+   не переносилось на вторую строку. nowrap здесь страховка от переноса. */
+.mobile-menu .btn {
+  margin-top: var(--s-4);
+  justify-self: stretch;
+  padding-block: 20px;
+  font-size: clamp(20px, 6.2vw, 28px);
+  white-space: nowrap;
+  text-align: center;
+}

@@ -1,0 +1,153 @@
+/**
+ * Стили для юридических страниц (privacy.html, oferta.html).
+ * Никакой JS-зависимости: только шрифты/токены/сброс из общей дизайн-системы
+ * (fonts.css, tokens.css, base.css — они уже не завязаны на скрипты сайта)
+ * плюс вёрстка самого документа.
+ */
+@import './fonts.css';
+@import './tokens.css';
+@import './base.css';
+
+.legal-page {
+  min-height: 100vh;
+}
+
+/* Блок центрируется в той же зоне, что и остальные секции сайта — тот же
+   --container и margin-inline:auto, что у .container в base.css. Текст
+   внутри растянут на всю эту ширину, без узкой колонки. */
+.legal {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: var(--s-12) var(--gutter) var(--s-32);
+}
+
+.legal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  transition: color 0.2s var(--ease-out);
+}
+
+.legal-back:hover {
+  color: var(--accent);
+}
+
+.legal__head {
+  margin-top: var(--s-12);
+  margin-bottom: var(--s-16);
+}
+
+.legal__head .label {
+  margin-bottom: var(--s-4);
+}
+
+.legal__head h1 {
+  font-size: clamp(1.7rem, 4.2vw, 2.5rem);
+  line-height: 1.12;
+}
+
+.legal__updated {
+  margin-top: var(--s-4);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink-faint);
+}
+
+/* ── Тело документа ───────────────────────────────────────── */
+.legal__body h2 {
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  margin-top: var(--s-12);
+  margin-bottom: var(--s-4);
+}
+
+.legal__body h2:first-child {
+  margin-top: 0;
+}
+
+.legal__body p {
+  margin-top: var(--s-4);
+  color: var(--ink-muted);
+}
+
+.legal__body p:first-of-type {
+  margin-top: 0;
+}
+
+.legal__body ul {
+  margin: var(--s-4) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--s-2);
+}
+
+.legal__body li {
+  position: relative;
+  padding-left: var(--s-6);
+  color: var(--ink-muted);
+}
+
+.legal__body li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.legal__body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 224, 192, 0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s var(--ease-out);
+}
+
+.legal__body a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.legal__body strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* Плейсхолдер, который оператор обязан заполнить вручную перед деплоем —
+   акцентная рамка специально бросается в глаза, чтобы её нельзя было
+   случайно оставить и не заметить */
+.fill {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 224, 192, 0.5);
+  background: rgba(0, 224, 192, 0.14);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.86em;
+  white-space: nowrap;
+}
+
+.legal__divider {
+  margin: var(--s-16) 0;
+  border: none;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 560px) {
+  .legal {
+    padding-top: var(--s-8);
+  }
+  .legal__head {
+    margin-top: var(--s-8);
+    margin-bottom: var(--s-12);
+  }
+}

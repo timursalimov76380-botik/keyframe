@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Keyframe — студия веб-разработки</title>
+    <meta
+      name="description"
+      content="Keyframe — студия веб-разработки. Лендинги, многостраничные сайты и чат-боты на коде: 3D, анимация, интеграции с Telegram и CRM. Публикуем от двух рабочих дней."
+    />
+    <meta name="theme-color" content="#050e0d" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content="Keyframe — студия веб-разработки" />
+    <meta property="og:description" content="Сайты и чат-боты на коде, а не на конструкторе: лендинги, многостраничники, боты, 3D и анимация." />
+    <meta property="og:type" content="website" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/unbounded-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-cyrillic.woff2" crossorigin />
+    <link rel="stylesheet" href="/src/styles/index.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="nav.skip">К содержимому</a>
+
+    <header class="nav" id="nav">
+      <div class="nav__inner">
+        <a class="nav__brand" href="#top">
+          <span class="nav__mark" aria-hidden="true"></span>
+          KEYFRAME
+        </a>
+
+        <nav class="nav__links" aria-label="Основная навигация">
+          <a class="nav__link" href="#work" data-i18n="nav.work">Работы</a>
+          <a class="nav__link" href="#capabilities" data-i18n="nav.capabilities">Возможности</a>
+          <a class="nav__link" href="#process" data-i18n="nav.process">Процесс</a>
+          <a class="nav__link" href="#contact" data-i18n="nav.contact">Контакты</a>
+        </nav>
+
+        <div class="nav__side">
+          <div class="lang" role="group" aria-label="Язык сайта">
+            <button class="lang__btn" type="button" data-lang="ru" aria-pressed="true">RU</button>
+            <button class="lang__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn--primary nav__cta" href="https://t.me/InoskeHasimiro" target="_blank" rel="noopener" data-i18n="nav.cta">
+            Обсудить проект
+          </a>
+          <button class="nav__burger" type="button" aria-expanded="false" aria-controls="mobile-menu">
+            <span aria-hidden="true"></span>
+            <span class="sr-only" data-i18n="nav.menu">Меню</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" data-open="false">
+      <a href="#work" data-i18n="nav.work">Работы</a>
+      <a href="#capabilities" data-i18n="nav.capabilities">Возможности</a>
+      <a href="#process" data-i18n="nav.process">Процесс</a>
+      <a href="#contact" data-i18n="nav.contact">Контакты</a>
+      <a class="btn btn--primary" href="https://t.me/InoskeHasimiro" target="_blank" rel="noopener" data-i18n="nav.cta">
+        Обсудить проект
+      </a>
+    </div>
+
+    <main id="main">
+      <!-- ── Хиро ────────────────────────────────────────────── -->
+      <section class="hero" id="top">
+        <div class="hero__aura" aria-hidden="true"></div>
+        <div class="hero__grid" aria-hidden="true"></div>
+
+        <div class="hero__inner">
+          <div class="hero__eyebrow" data-enter="1">
+            <span class="label" data-i18n="hero.eyebrow">Студия веб-разработки</span>
+          </div>
+
+          <h1 class="wordmark" data-enter="2">
+            <span class="sr-only">Keyframe</span>
+            <span class="wordmark__part" aria-hidden="true">KEY</span>
+            <span class="wordmark__slot" aria-hidden="true">
+              <span class="wordmark__stage" id="hero-stage">
+                <canvas id="hero-canvas"></canvas>
+              </span>
+            </span>
+            <span class="wordmark__part wordmark__part--right" aria-hidden="true">FRAME</span>
+          </h1>
+
+          <p class="hero__lede" data-enter="3" data-i18n-html="hero.lede">
+            Сайты и чат-боты на коде, а не на конструкторе:
+            <strong>лендинги, многостраничники, боты, 3D и анимация</strong>.
+            Собираем от текста и дизайна до публикации — одной командой.
+          </p>
+
+          <div class="hero__actions" data-enter="4">
+            <a class="btn btn--primary" href="#work" data-i18n="hero.ctaPrimary">Смотреть работы</a>
+            <a class="btn btn--ghost" href="https://t.me/InoskeHasimiro" target="_blank" rel="noopener" data-i18n="hero.ctaSecondary">
+              Написать в Telegram
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__meta" data-enter="5">
+          <div class="hero__meta-group">
+            <span class="hero__meta-item" data-i18n="hero.meta1">Четыре сайта в проде</span>
+            <span class="hero__meta-item" data-i18n="hero.meta2">От 3 рабочих дней</span>
+            <span class="hero__meta-item" data-i18n="hero.meta3">Код без конструкторов</span>
+          </div>
+          <a class="hero__scroll" href="#work">
+            <span class="hero__scroll-line" aria-hidden="true"></span>
+            <span data-i18n="hero.scroll">Листайте</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ── Работы ──────────────────────────────────────────── -->
+      <section class="section" id="work">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <span class="label" data-i18n="work.label">Работы</span>
+            <h2 class="section-title" data-i18n="work.title">Четыре сайта, четыре разные задачи</h2>
+            <p class="section-lede" data-i18n="work.lede">
+              Все четыре работают в проде — ссылки открываются, формы отправляют, цены настоящие.
+              Ниже — не список функций, а то, какую задачу решал каждый.
+            </p>
+          </header>
+
+          <div class="work-grid">
+            <article class="work-card work-card--lead" data-reveal>
+              <a class="work-card__media" href="https://cerulean-hotteok-b17006.netlify.app" target="_blank" rel="noopener">
+                <img
+                  src="/work/maki-maki.webp"
+                  alt="Главный экран сайта доставки Маки-Маки"
+                  data-i18n-alt="work.card3.alt"
+                  loading="lazy"
+                  width="2160"
+                  height="1350"
+                />
+              </a>
+              <div class="work-card__body">
+                <div class="work-card__top">
+                  <h3 class="work-card__title" data-i18n="brand.makiMaki">Маки-Маки</h3>
+                  <span class="work-card__kind" data-i18n="work.card3.kind">Каталог с админкой</span>
+                </div>
+                <p class="work-card__text" data-i18n="work.card3.text">
+                  Доставка еды с меню на пятьдесят с лишним позиций. Главная сложность была не в витрине,
+                  а в том, чтобы владелец менял состав и цены сам: каталог, корзина и админка на Next.js,
+                  где блюдо правится за полминуты и без разработчика.
+                </p>
+                <ul class="work-card__tags">
+                  <li>Next.js</li>
+                  <li>React</li>
+                  <li>TypeScript</li>
+                  <li data-i18n="work.card3.tag">Админка</li>
+                </ul>
+                <a class="work-card__link" href="https://cerulean-hotteok-b17006.netlify.app" target="_blank" rel="noopener">
+                  <span data-i18n="work.open">Открыть сайт</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+
+            <article class="work-card" data-reveal>
+              <a class="work-card__media" href="https://dark-glass.netlify.app" target="_blank" rel="noopener">
+                <img
+                  src="/work/dark-glass.webp"
+                  alt="Главный экран сайта детейлинг-студии Dark Glass"
+                  loading="lazy"
+                  width="2160"
+                  height="1350"
+                />
+              </a>
+              <div class="work-card__body">
+                <div class="work-card__top">
+                  <h3 class="work-card__title">Dark Glass</h3>
+                  <span class="work-card__kind" data-i18n="work.card1.kind">Премиальный детейлинг</span>
+                </div>
+                <p class="work-card__text" data-i18n="work.card1.text">
+                  В детейлинге цену обычно не называют до осмотра, и это отпугивает.
+                  Здесь наоборот: шесть услуг с вилками по размеру кузова прямо на странице —
+                  клиент считает бюджет заранее и приходит уже решившим.
+                </p>
+                <ul class="work-card__tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Telegram</li>
+                </ul>
+                <a class="work-card__link" href="https://dark-glass.netlify.app" target="_blank" rel="noopener">
+                  <span data-i18n="work.open">Открыть сайт</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+
+            <article class="work-card" data-reveal>
+              <a class="work-card__media" href="https://yulia-barber.netlify.app" target="_blank" rel="noopener">
+                <img
+                  src="/work/boss-volos.webp"
+                  alt="Главный экран сайта барбера Boss Volos"
+                  loading="lazy"
+                  width="2160"
+                  height="1350"
+                />
+              </a>
+              <div class="work-card__body">
+                <div class="work-card__top">
+                  <h3 class="work-card__title">Boss Volos</h3>
+                  <span class="work-card__kind" data-i18n="work.card2.kind">Сайт-визитка барбера</span>
+                </div>
+                <p class="work-card__text" data-i18n="work.card2.text">
+                  Один мастер против сетевых барбершопов. Выигрывать прайсом бессмысленно,
+                  поэтому ставка на голос: страница написана так, как мастер говорит в кресле,
+                  а цены зафиксированы заранее — без допродаж по ходу стрижки.
+                </p>
+                <ul class="work-card__tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li data-i18n="work.card2.tag">Анимация</li>
+                </ul>
+                <a class="work-card__link" href="https://yulia-barber.netlify.app" target="_blank" rel="noopener">
+                  <span data-i18n="work.open">Открыть сайт</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+
+            <article class="work-card" data-reveal>
+              <a class="work-card__media" href="https://webinar.nagaichenkopsy.com" target="_blank" rel="noopener">
+                <img
+                  src="/work/nagaichenko.webp"
+                  alt="Главный экран продающего вебинара Nagaichenko"
+                  data-i18n-alt="work.card4.alt"
+                  loading="lazy"
+                  width="2160"
+                  height="1350"
+                />
+              </a>
+              <div class="work-card__body">
+                <div class="work-card__top">
+                  <h3 class="work-card__title">Nagaichenko</h3>
+                  <span class="work-card__kind" data-i18n="work.card4.kind">Продающий вебинар</span>
+                </div>
+                <p class="work-card__text" data-i18n="work.card4.text">
+                  Продающий лендинг вебинара психолога, где вся суть — довести от «хочу»
+                  до оплаты за один экран. Оплата через Robokassa с собственной интеграцией,
+                  доступ к видео с DRM-защитой открывается сразу после оплаты, а платежи
+                  и доступы ведутся в отдельной админке на Supabase.
+                </p>
+                <ul class="work-card__tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Robokassa</li>
+                </ul>
+                <a class="work-card__link" href="https://webinar.nagaichenkopsy.com" target="_blank" rel="noopener">
+                  <span data-i18n="work.open">Открыть сайт</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Возможности ─────────────────────────────────────── -->
+      <section class="section" id="capabilities">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <span class="label" data-i18n="cap.label">Возможности</span>
+            <h2 class="section-title" data-i18n="cap.title">Не список технологий, а что они дают</h2>
+            <p class="section-lede" data-i18n="cap.lede">
+              Посчитайте смету прямо здесь и посмотрите, как выглядит панель, через которую
+              владелец правит сайт сам. Оба блока — рабочие, а не картинки.
+            </p>
+          </header>
+
+          <div class="cap-grid">
+            <!-- Калькулятор -->
+            <article class="cap-card cap-card--calc" data-reveal>
+              <div class="cap-card__head">
+                <span class="cap-card__badge" data-i18n="calc.badge">Живой виджет</span>
+                <h3 class="cap-card__title" data-i18n="calc.title">Смета за минуту</h3>
+              </div>
+
+              <form class="calc" id="calc" novalidate>
+                <fieldset class="calc__field">
+                  <legend class="calc__legend" data-i18n="calc.kindLabel">Что нужно</legend>
+                  <div class="calc__select-wrap">
+                    <select class="calc__select" id="calc-kind" name="kind">
+                      <option value="landing" data-i18n="calc.kind.landing">Лендинг под ключ</option>
+                      <option value="multipage" data-i18n="calc.kind.multipage">Многостраничный сайт</option>
+                      <option value="design" data-i18n="calc.kind.design">Только дизайн-макет</option>
+                      <option value="shop" data-i18n="calc.kind.shop">Интернет-магазин под ключ</option>
+                    </select>
+                    <span class="calc__chevron" aria-hidden="true">▾</span>
+                  </div>
+                </fieldset>
+
+                <fieldset class="calc__field">
+                  <legend class="calc__legend" data-i18n="calc.tierLabel">Тариф</legend>
+                  <div class="calc__tiers" id="calc-tiers">
+                    <label class="calc__tier">
+                      <input type="radio" name="tier" value="base" />
+                      <span class="calc__tier-name" data-i18n="calc.tier.base">Базовый</span>
+                    </label>
+                    <label class="calc__tier">
+                      <input type="radio" name="tier" value="standard" checked />
+                      <span class="calc__tier-name" data-i18n="calc.tier.standard">Стандарт</span>
+                    </label>
+                    <label class="calc__tier">
+                      <input type="radio" name="tier" value="premium" />
+                      <span class="calc__tier-name" data-i18n="calc.tier.premium">Премиум</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="calc__field">
+                  <legend class="calc__legend" data-i18n="calc.extrasLabel">Дополнительно</legend>
+                  <label class="calc__check" id="calc-cms-row">
+                    <input type="checkbox" id="calc-cms" name="cms" />
+                    <span class="calc__check-box" aria-hidden="true"></span>
+                    <span class="calc__check-text">
+                      <span data-i18n="calc.cms">Панель для самостоятельного редактирования</span>
+                      <small data-i18n="calc.cmsNote">Тексты и фото меняете сами, без разработчика</small>
+                    </span>
+                  </label>
+                </fieldset>
+
+                <div class="calc__result" aria-live="polite">
+                  <div class="calc__price">
+                    <span class="calc__price-from" data-i18n="calc.from">от</span>
+                    <output class="calc__price-value" id="calc-price" for="calc-kind calc-cms">16 000 ₽</output>
+                  </div>
+                  <div class="calc__term">
+                    <span class="calc__term-value" id="calc-term">3–4</span>
+                    <span class="calc__term-unit" data-i18n="calc.days">рабочих дней</span>
+                  </div>
+                </div>
+
+                <ul class="calc__includes" id="calc-includes"></ul>
+
+                <div class="calc__excludes" id="calc-excludes" hidden>
+                  <p class="calc__excludes-label" data-i18n="calc.exclLabel">Не входит по умолчанию</p>
+                  <ul class="calc__excludes-list" id="calc-excludes-list"></ul>
+                </div>
+
+                <p class="calc__disclaimer" data-i18n="calc.disclaimer">
+                  Стартовые цены для первых проектов — ниже среднерыночных за счёт быстрого процесса.
+                  Точная сумма считается после брифа.
+                </p>
+              </form>
+            </article>
+
+            <!-- Мокап админки -->
+            <article class="cap-card cap-card--admin" data-reveal>
+              <div class="cap-card__head">
+                <span class="cap-card__badge" data-i18n="admin.badge">Как это выглядит у клиента</span>
+                <h3 class="cap-card__title" data-i18n="admin.title">Админка, а не звонок разработчику</h3>
+              </div>
+
+              <div class="admin" aria-hidden="true">
+                <div class="admin__bar">
+                  <span class="admin__dot"></span>
+                  <span class="admin__dot"></span>
+                  <span class="admin__dot"></span>
+                  <span class="admin__path">/admin/menu</span>
+                </div>
+                <div class="admin__body">
+                  <div class="admin__row admin__row--head">
+                    <span data-i18n="admin.colName">Позиция</span>
+                    <span data-i18n="admin.colPrice">Цена</span>
+                    <span data-i18n="admin.colState">Показ</span>
+                  </div>
+                  <div class="admin__row">
+                    <span>Филадельфия</span>
+                    <span class="admin__price">620 ₽</span>
+                    <span class="admin__toggle admin__toggle--on"></span>
+                  </div>
+                  <div class="admin__row admin__row--active">
+                    <span>Калифорния</span>
+                    <span class="admin__price admin__price--edit">415 ₽</span>
+                    <span class="admin__toggle admin__toggle--on"></span>
+                  </div>
+                  <div class="admin__row">
+                    <span>Сет «Самурай»</span>
+                    <span class="admin__price">1 990 ₽</span>
+                    <span class="admin__toggle admin__toggle--on"></span>
+                  </div>
+                  <div class="admin__row admin__row--off">
+                    <span>Сет «Рол-Рол»</span>
+                    <span class="admin__price">1 599 ₽</span>
+                    <span class="admin__toggle"></span>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="admin-notes">
+                <li data-i18n="admin.pinPrice">Цена правится в строке</li>
+                <li data-i18n="admin.pinState">Снять с витрины — один тумблер</li>
+              </ul>
+
+              <p class="cap-card__text" data-i18n="admin.text">
+                Так устроена панель Маки-Маки. Сезонное блюдо убирается с витрины тумблером,
+                цена меняется прямо в строке — правки не копятся до вечера и не стоят отдельных денег.
+              </p>
+            </article>
+
+            <!-- Стек -->
+            <article class="cap-card cap-card--stack" data-reveal>
+              <div class="cap-card__head">
+                <span class="cap-card__badge" data-i18n="stack.badge">Стек</span>
+                <h3 class="cap-card__title" data-i18n="stack.title">На чём собираем</h3>
+              </div>
+              <ul class="chips">
+                <li class="chip">Next.js</li>
+                <li class="chip">React</li>
+                <li class="chip">TypeScript</li>
+                <li class="chip">Tailwind</li>
+                <li class="chip">Node.js</li>
+                <li class="chip">Three.js</li>
+                <li class="chip">Vite</li>
+                <li class="chip">Netlify</li>
+              </ul>
+              <p class="cap-card__text cap-card__text--tight" data-i18n="stack.text">
+                Стек выбирается под задачу, а не наоборот. Этот сайт, например, собран без фреймворка —
+                одностраничнику не нужен роутинг, а лишний слой только замедлил бы загрузку.
+              </p>
+            </article>
+
+            <!-- Интеграции -->
+            <article class="cap-card cap-card--int" data-reveal>
+              <div class="cap-card__head">
+                <span class="cap-card__badge" data-i18n="int.badge">Интеграции</span>
+                <h3 class="cap-card__title" data-i18n="int.title">Куда уходит заявка</h3>
+              </div>
+              <ul class="int-list">
+                <li class="int-list__item">
+                  <span class="int-list__name">Telegram</span>
+                  <span class="int-list__note" data-i18n="int.telegram">Заявка падает в чат за секунду после отправки</span>
+                </li>
+                <li class="int-list__item">
+                  <span class="int-list__name">amoCRM · Bitrix24</span>
+                  <span class="int-list__note" data-i18n="int.crm">Передача сделок по API — токен даёте вы, настройку делаем мы</span>
+                </li>
+                <li class="int-list__item">
+                  <span class="int-list__name">Метрика · GA</span>
+                  <span class="int-list__note" data-i18n="int.analytics">Счётчик и цели на кнопках и формах, а не «просто установлен»</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Боты: отдельная секция, не карточка внутри «Возможности» ──
+           Раньше жил вторым рядом в cap-grid рядом с пустой карточкой-пояснением —
+           терялся на общем фоне. Теперь свой заголовок и калькулятор на всю ширину. -->
+      <section class="section" id="bots">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <span class="label" data-i18n="bots.label">Боты</span>
+            <h2 class="section-title" data-i18n="bot.title">Во сколько обойдётся бот</h2>
+            <p class="section-lede" data-i18n="bots.lede">
+              Второй живой калькулятор на этой странице — не просто демонстрация: похожий модуль
+              можно встроить и в ваш сайт.
+            </p>
+          </header>
+
+          <article class="cap-card cap-card--calc" data-reveal>
+            <form class="calc calc--wide" id="bot-calc" novalidate>
+              <div class="calc__controls">
+                <fieldset class="calc__field">
+                  <legend class="calc__legend" data-i18n="bot.messengerLabel">Мессенджер</legend>
+                  <div class="calc__select-wrap">
+                    <select class="calc__select" id="bot-messenger" name="messenger">
+                      <option value="telegram" data-i18n="bot.messenger.telegram">Telegram</option>
+                      <option value="max" data-i18n="bot.messenger.max">MAX</option>
+                      <option value="both" data-i18n="bot.messenger.both">Telegram + MAX</option>
+                    </select>
+                    <span class="calc__chevron" aria-hidden="true">▾</span>
+                  </div>
+                </fieldset>
+
+                <fieldset class="calc__field">
+                  <legend class="calc__legend" data-i18n="calc.tierLabel">Тариф</legend>
+                  <div class="calc__tiers">
+                    <label class="calc__tier">
+                      <input type="radio" name="tier" value="base" />
+                      <span class="calc__tier-name" data-i18n="calc.tier.base">Базовый</span>
+                    </label>
+                    <label class="calc__tier">
+                      <input type="radio" name="tier" value="standard" checked />
+                      <span class="calc__tier-name" data-i18n="calc.tier.standard">Стандарт</span>
+                    </label>
+                    <label class="calc__tier">
+                      <input type="radio" name="tier" value="premium" />
+                      <span class="calc__tier-name" data-i18n="calc.tier.premium">Премиум</span>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="calc__output">
+                <div class="calc__result" aria-live="polite">
+                  <div class="calc__price">
+                    <span class="calc__price-from" data-i18n="calc.from">от</span>
+                    <output class="calc__price-value" id="bot-calc-price" for="bot-messenger">25 000 ₽</output>
+                  </div>
+                  <div class="calc__term">
+                    <span class="calc__term-value" id="bot-calc-term">4–6</span>
+                    <span class="calc__term-unit" data-i18n="calc.days">рабочих дней</span>
+                  </div>
+                </div>
+
+                <p class="calc__for-whom" id="bot-calc-for-whom"></p>
+
+                <div class="calc__proof" id="bot-calc-proof"></div>
+
+                <p class="calc__disclaimer">
+                  <span id="bot-calc-surcharge-note" data-i18n="bot.disclaimerSurcharge">
+                    Плюс 20% к цене при выборе Telegram и MAX сразу.
+                  </span>
+                  <span data-i18n="bot.disclaimerBrief">Точная стоимость — после брифа.</span>
+                </p>
+              </div>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <!-- ── Разделитель-марквее (принцип 10.8) ──────────────── -->
+      <!-- Копии группы клонируются в marquee.js под ширину экрана: захардкоженного
+           числа копий не хватало, чтобы лента не обрывалась на широких мониторах -->
+      <div class="marquee-clip" aria-hidden="true">
+        <div class="marquee">
+          <div class="marquee__track">
+            <span class="marquee__group">
+              <span>Next.js</span><span>·</span><span>React</span><span>·</span><span>TypeScript</span><span>·</span>
+              <span>Tailwind</span><span>·</span><span>Node.js</span><span>·</span><span>Three.js</span><span>·</span>
+              <span>WebGL</span><span>·</span><span>Vite</span><span>·</span><span>Netlify</span><span>·</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Процесс: светлая секция (принцип 9.5) ───────────── -->
+      <section class="section section--light" id="process">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <span class="label" data-i18n="process.label">Процесс</span>
+            <h2 class="section-title" data-i18n="process.title">Четыре шага от брифа до публикации</h2>
+            <p class="section-lede" data-i18n="process.lede">
+              Отсчёт срока идёт с момента, когда получены бриф и материалы. Оплата — половина
+              до старта, половина после сдачи.
+            </p>
+          </header>
+
+          <ol class="steps">
+            <li class="step" data-reveal>
+              <span class="step__num">01</span>
+              <h3 class="step__title" data-i18n="process.s1.title">Бриф и структура</h3>
+              <p class="step__text" data-i18n="process.s1.text">
+                Разбираем цель, продукт и аудиторию, смотрим двух-трёх конкурентов.
+                Собираем схему блоков и согласуем логику страницы до того, как рисовать.
+              </p>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__num">02</span>
+              <h3 class="step__title" data-i18n="process.s2.title">Дизайн ключевых экранов</h3>
+              <p class="step__text" data-i18n="process.s2.text">
+                Отрисовываем один-два главных экрана и утверждаем стиль. Остальные блоки
+                оформляются в той же системе — шрифты и компоненты переиспользуются.
+              </p>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__num">03</span>
+              <h3 class="step__title" data-i18n="process.s3.title">Вёрстка и интеграции</h3>
+              <p class="step__text" data-i18n="process.s3.text">
+                Верстаем на коде, адаптируем под телефон и планшет, подключаем анимации,
+                форму заявки, уведомления в Telegram и аналитику.
+              </p>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__num">04</span>
+              <h3 class="step__title" data-i18n="process.s4.title">Публикация и правки</h3>
+              <p class="step__text" data-i18n="process.s4.text">
+                Проверяем на реальных устройствах, публикуем, привязываем домен.
+                Дальше — согласованные круги правок и помощь с мелочами первые две недели.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ── Контакты ────────────────────────────────────────── -->
+      <section class="section contact" id="contact">
+        <div class="container contact__inner" data-reveal>
+          <span class="label" data-i18n="contact.label">Контакты</span>
+          <h2 class="contact__title" data-i18n="contact.title">Расскажите, что нужно сделать</h2>
+          <p class="contact__text" data-i18n="contact.text">
+            Напишите в Telegram пару строк о задаче — отвечаем сами, без ботов и анкет
+            на двадцать полей. Если по срокам или бюджету не сойдёмся, скажем сразу.
+          </p>
+          <a class="btn btn--primary contact__cta" href="https://t.me/InoskeHasimiro" target="_blank" rel="noopener">
+            <span data-i18n="contact.cta">Написать в Telegram</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <span class="contact__handle">@InoskeHasimiro</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <a class="nav__brand" href="#top">
+          <span class="nav__mark" aria-hidden="true"></span>
+          KEYFRAME
+        </a>
+        <p class="footer__note" data-i18n="footer.note">
+          Студия веб-разработки. Ключевой кадр — тот, с которого начинается движение.
+        </p>
+        <div class="footer__legal">
+          <a href="/oferta.html" data-i18n="footer.oferta">Публичная оферта</a>
+          <a href="/privacy.html" data-i18n="footer.privacy">Политика конфиденциальности</a>
+          <span class="footer__year">© 2026</span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
