@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "shots": "node scripts/capture-work.mjs"
+    "shots": "node scripts/capture-work.mjs",
+    "og": "node scripts/capture-og.mjs"
   },
   "dependencies": {
     "postprocessing": "^6.37.8",
