@@ -1,4 +1,5 @@
 import { t, getLang, onLangChange } from './i18n.js';
+import { formatPrice, onRateChange } from './currency.js';
 
 /**
  * Второй калькулятор, независимый от сайтового (см. calculator.js).
@@ -37,8 +38,6 @@ const PROOF = {
   premium: [{ name: 'Groq Assistant', url: 'https://t.me/Groq_Assisstantt_bot' }],
 };
 
-const money = new Intl.NumberFormat('ru-RU');
-
 function formatDays([min, max]) {
   return min === max ? String(min) : `${min}–${max}`;
 }
@@ -74,7 +73,7 @@ export function initBotCalculator() {
       a.href = bot.url;
       a.target = '_blank';
       a.rel = 'noopener';
-      a.setAttribute('aria-label', `${botName} — ${t('bot.proofOpen')}`);
+      a.setAttribute('aria-label', `${botName}: ${t('bot.proofOpen')}`);
 
       const name = document.createElement('span');
       name.textContent = botName;
@@ -106,7 +105,7 @@ export function initBotCalculator() {
     const both = messengerEl.value === 'both';
     const price = Math.round(plan.price * (both ? 1 + BOTH_SURCHARGE : 1));
 
-    priceEl.textContent = `${money.format(price)} ₽`;
+    priceEl.textContent = formatPrice(price);
     termEl.textContent = formatDays(plan.days);
     forWhomEl.textContent = t(`bot.tier.${tier}.forWhom`);
     renderProof(tier);
@@ -119,5 +118,6 @@ export function initBotCalculator() {
   form.addEventListener('change', render);
   form.addEventListener('submit', (e) => e.preventDefault());
   onLangChange(render);
+  onRateChange(render);
   render();
 }

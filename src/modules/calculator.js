@@ -1,4 +1,5 @@
 import { t, onLangChange } from './i18n.js';
+import { formatPrice, onRateChange } from './currency.js';
 
 /**
  * Цифры взяты из действующих коммерческих предложений студии, а не выдуманы:
@@ -14,7 +15,7 @@ const PRICING = {
   landing: {
     cms: { price: 3000, days: [1, 2] },
     tiers: {
-      base: { price: 9000, days: [2, 2] },
+      base: { price: 9000, days: [3, 3] },
       standard: { price: 16000, days: [3, 4] },
       premium: { price: 27000, days: [5, 6] },
     },
@@ -46,8 +47,6 @@ const PRICING = {
     },
   },
 };
-
-const money = new Intl.NumberFormat('ru-RU');
 
 function formatDays([min, max]) {
   return min === max ? String(min) : `${min}–${max}`;
@@ -108,7 +107,7 @@ export function initCalculator() {
       ? [base.days[0] + cms.days[0], base.days[1] + cms.days[1]]
       : base.days;
 
-    priceEl.textContent = `${money.format(price)} ₽`;
+    priceEl.textContent = formatPrice(price);
     termEl.textContent = formatDays(days);
 
     const items = t(`calc.inc.${kind}.${tier}`);
@@ -127,5 +126,6 @@ export function initCalculator() {
   form.addEventListener('change', render);
   form.addEventListener('submit', (e) => e.preventDefault());
   onLangChange(render);
+  onRateChange(render);
   render();
 }

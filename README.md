@@ -20,6 +20,7 @@ src/main.js             точка входа: навигация, подклю�
 src/scene/hero-object.js  3D-объект хиро (three.js + simplex-noise + postprocessing)
 src/modules/i18n.js     переключение RU/EN
 src/modules/calculator.js  калькулятор сметы
+src/modules/currency.js курс USD для EN-цен (ЦБ РФ, кэш на сутки)
 src/modules/reveal.js   появление блоков при скролле
 src/i18n/dict.js        все тексты сайта, оба языка
 src/styles/             токены, база, навигация, хиро, секции
@@ -34,6 +35,13 @@ scripts/                служебные скрипты, в сборку не 
 
 Цены калькулятора — в `src/modules/calculator.js`, взяты из действующих КП
 (лендинг / многостраничник / дизайн-макет, три тарифа в каждом).
+
+В коде цены только в рублях. На RU-версии они показываются как есть, на EN
+`src/modules/currency.js` пересчитывает их в доллары по курсу ЦБ РФ
+(`cbr-xml-daily.ru`), округляя до $5. Курс запрашивается только на EN и не чаще
+раза в сутки, лежит в localStorage; при сбое остаётся последнее полученное
+значение, а без кэша работает запасной курс из `FALLBACK_RATE`. Его стоит
+обновлять раз в несколько месяцев.
 
 ## Песочница форм
 
@@ -53,7 +61,8 @@ Vite собирает только `index.html`.
 
 ```bash
 node scripts/fetch-fonts.mjs    # перекачать шрифты с Google Fonts в public/fonts
-npm run shots                   # пересобрать превью трёх работ в public/work
+npm run shots                   # пересобрать превью работ в public/work
+npm run og                      # переснять баннер для соцсетей public/og-image.jpg (нужен npm run dev)
 node scripts/shot-dev.mjs       # скриншоты страницы в трёх размерах → .shots/
 node scripts/audit.mjs          # контраст, табуляция, ARIA
 ```

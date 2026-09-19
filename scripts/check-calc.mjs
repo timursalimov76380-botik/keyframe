@@ -89,7 +89,10 @@ for (const lang of LANGS) {
         checked += 1;
         const issues = [];
 
-        if (!/^\d[\d\s\u00a0]*\s*₽$/.test(state.price)) issues.push(`цена «${state.price}»`);
+        // RU показывает рубли, EN — расчётный доллар без рублей рядом
+        const priceOk =
+          lang === 'en' ? /^\$\d[\d,]*$/.test(state.price) : /^\d[\d\s\u00a0]*\s*₽$/.test(state.price);
+        if (!priceOk) issues.push(`цена «${state.price}»`);
         if (!/^\d+(–\d+)?$/.test(state.term)) issues.push(`срок «${state.term}»`);
         if (state.includes.length === 0) issues.push('пустой список входящего');
         if (state.includes.some((t) => /^calc\./.test(t))) issues.push('непереведённая строка в includes');

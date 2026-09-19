@@ -1,10 +1,12 @@
 import { initI18n } from './modules/i18n.js';
+import { initCurrency } from './modules/currency.js';
 import { initCalculator } from './modules/calculator.js';
 import { initBotCalculator } from './modules/bot-calculator.js';
 import { initReveal } from './modules/reveal.js';
 import { initMarquee } from './modules/marquee.js';
 
 initI18n();
+initCurrency();
 initCalculator();
 initBotCalculator();
 initReveal();

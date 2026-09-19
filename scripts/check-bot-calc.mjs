@@ -49,6 +49,22 @@ function money(n) {
   return `${n.toLocaleString('ru-RU')} ₽`;
 }
 
+// EN: расчётный доллар по курсу ЦБ, округлённый до $5 (та же формула, что в src/modules/currency.js)
+function usd(rub, rate) {
+  const v = Math.max(5, Math.round(rub / rate / 5) * 5);
+  return `$${v.toLocaleString('en-US')}`;
+}
+
+// Курс приходит асинхронно и кладётся в localStorage. Ждём его, чтобы ожидание было точным
+async function waitForRate() {
+  for (let i = 0; i < 40; i++) {
+    const rate = await page.evaluate(() => JSON.parse(localStorage.getItem('keyframe:usd-rub') || 'null')?.rate);
+    if (rate) return rate;
+    await new Promise((r) => setTimeout(r, 250));
+  }
+  return 84.2; // запасной курс из currency.js: запрос не прошёл
+}
+
 // ── RU: базовые числа и надбавка за «оба» ──────────────────────
 await page.click('.lang__btn[data-lang="ru"]');
 for (const tier of TIERS) {
@@ -100,6 +116,8 @@ const afterSwitch = await page.evaluate(() => {
 }
 
 // ── EN: цены и переводы по тарифам (messenger уже сброшен на telegram) ─
+const rate = await waitForRate();
+await new Promise((r) => setTimeout(r, 300)); // даём перерисоваться после прихода курса
 for (const tier of TIERS) {
   await setTier(tier);
   const state = await page.evaluate(() => ({
@@ -110,7 +128,7 @@ for (const tier of TIERS) {
   checked += 1;
   const exp = EXPECTED[tier];
   const issues = [];
-  if (state.price !== money(exp.price)) issues.push(`цена «${state.price}», ожидал «${money(exp.price)}»`);
+  if (state.price !== usd(exp.price, rate)) issues.push(`цена «${state.price}», ожидал «${usd(exp.price, rate)}»`);
   if (state.term !== exp.days) issues.push(`срок «${state.term}», ожидал «${exp.days}»`);
   if (!state.forWhom || state.forWhom.startsWith('bot.')) issues.push('пустой/непереведённый текст «для кого»');
   if (issues.length) {

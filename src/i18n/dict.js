@@ -6,36 +6,35 @@
  */
 export const dict = {
   ru: {
-    'meta.title': 'Keyframe — студия веб-разработки',
+    'meta.title': 'Keyframe: сайты и боты на чистом коде',
     'meta.description':
-      'Keyframe — студия веб-разработки. Лендинги, многостраничные сайты и чат-боты на коде: 3D, анимация, интеграции с Telegram и CRM. Публикуем от двух рабочих дней.',
+      'Keyframe: сайты и боты на чистом коде. Лендинги, многостраничники и чат-боты с 3D, анимацией и интеграциями с Telegram и CRM. Сайты публикуем от 3 рабочих дней.',
 
     'nav.skip': 'К содержимому',
     'nav.work': 'Работы',
     'nav.capabilities': 'Возможности',
     'nav.process': 'Процесс',
     'nav.contact': 'Контакты',
-    'nav.cta': 'Обсудить проект',
+    'cta.primary': 'Обсудить проект',
+    'cta.secondary': 'Смотреть работы',
     'nav.menu': 'Меню',
 
-    'hero.eyebrow': 'Студия веб-разработки',
+    'hero.eyebrow': 'Сайты и боты на чистом коде',
     'hero.lede':
-      'Сайты и чат-боты на коде, а не на конструкторе: <strong>лендинги, многостраничники, боты, 3D и анимация</strong>. Собираем от текста и дизайна до публикации — одной командой.',
-    'hero.ctaPrimary': 'Смотреть работы',
-    'hero.ctaSecondary': 'Написать в Telegram',
+      '<strong>Лендинги, многостраничники, боты, 3D и анимация.</strong> Полный цикл: от текста и дизайна до публикации.',
     'hero.meta1': 'Четыре сайта в проде',
-    'hero.meta2': 'От 2 рабочих дней',
+    'hero.meta2': 'От 3 рабочих дней',
     'hero.meta3': 'Код без конструкторов',
     'hero.scroll': 'Листайте',
 
     'work.label': 'Работы',
     'work.title': 'Четыре сайта, четыре разные задачи',
     'work.lede':
-      'Все четыре работают в проде — ссылки открываются, формы отправляют, цены настоящие. Ниже — не список функций, а то, какую задачу решал каждый.',
+      'Все четыре работают в проде: ссылки открываются, формы отправляют, цены настоящие. Ниже описано, какую задачу решал каждый проект.',
     'work.open': 'Открыть сайт',
     'work.card3.kind': 'Каталог с админкой',
     'work.card3.text':
-      'Доставка еды с меню на пятьдесят с лишним позиций. Главная сложность была не в витрине, а в том, чтобы владелец менял состав и цены сам: каталог, корзина и админка на Next.js, где блюдо правится за полминуты и без разработчика.',
+      'Доставка еды с меню на пятьдесят с лишним позиций. Главной задачей было дать владельцу менять состав и цены самому: каталог, корзина и админка на Next.js, где блюдо правится за полминуты и без разработчика.',
     'work.card3.tag': 'Админка',
     'work.card3.alt': 'Главный экран сайта доставки Маки-Маки',
     // Dark Glass и Boss Volos латиницей в обеих версиях — переводить нечего.
@@ -45,20 +44,20 @@ export const dict = {
     'brand.makiMaki': 'Маки-Маки',
     'work.card1.kind': 'Премиальный детейлинг',
     'work.card1.text':
-      'В детейлинге цену обычно не называют до осмотра, и это отпугивает. Здесь наоборот: шесть услуг с вилками по размеру кузова прямо на странице — клиент считает бюджет заранее и приходит уже решившим.',
+      'В детейлинге цену обычно не называют до осмотра, и это отпугивает. Здесь наоборот: шесть услуг с вилками по размеру кузова прямо на странице. Клиент считает бюджет заранее и приходит уже решившим.',
     'work.card2.kind': 'Сайт-визитка барбера',
     'work.card2.text':
-      'Один мастер против сетевых барбершопов. Выигрывать прайсом бессмысленно, поэтому ставка на голос: страница написана так, как мастер говорит в кресле, а цены зафиксированы заранее — без допродаж по ходу стрижки.',
+      'Один мастер против сетевых барбершопов. Выигрывать прайсом бессмысленно, поэтому ставка на голос: страница написана так, как мастер говорит в кресле, а цены зафиксированы заранее, без допродаж по ходу стрижки.',
     'work.card2.tag': 'Анимация',
     'work.card4.kind': 'Продающий вебинар',
     'work.card4.text':
-      'Продающий лендинг вебинара психолога, где вся суть — довести от «хочу» до оплаты за один экран. Оплата через Robokassa с собственной интеграцией, доступ к видео с DRM-защитой открывается сразу после оплаты, а платежи и доступы ведутся в отдельной админке на Supabase.',
+      'Продающий лендинг вебинара психолога. Задача: довести человека от желания купить до оплаты за один экран. Оплата через Robokassa с собственной интеграцией, доступ к видео с DRM-защитой открывается сразу после оплаты, а платежи и доступы ведутся в отдельной админке на Supabase.',
     'work.card4.alt': 'Главный экран продающего вебинара Nagaichenko',
 
     'cap.label': 'Возможности',
-    'cap.title': 'Не список технологий, а что они дают',
+    'cap.title': 'Что вам даёт стек',
     'cap.lede':
-      'Посчитайте смету прямо здесь и посмотрите, как выглядит панель, через которую владелец правит сайт сам. Оба блока — рабочие, а не картинки.',
+      'Посчитайте смету прямо здесь и посмотрите, как выглядит панель, через которую владелец правит сайт сам. Оба блока рабочие.',
 
     'calc.badge': 'Живой виджет',
     'calc.title': 'Смета за минуту',
@@ -74,13 +73,13 @@ export const dict = {
     'calc.extrasLabel': 'Дополнительно',
     'calc.cms': 'Панель для самостоятельного редактирования',
     'calc.cmsNote': 'Тексты и фото меняете сами, без разработчика',
-    'calc.cmsNoteOff': 'Для дизайн-макета не применяется — сайт ещё не разработан',
+    'calc.cmsNoteOff': 'Для дизайн-макета не применяется: сайт ещё не разработан',
     'calc.cmsNoteIncluded': 'Простая CMS уже входит в любой тариф магазина',
     'calc.exclLabel': 'Не входит по умолчанию',
     'calc.from': 'от',
     'calc.days': 'рабочих дней',
     'calc.disclaimer':
-      'Стартовые цены для первых проектов — ниже среднерыночных за счёт быстрого процесса. Точная сумма считается после брифа.',
+      'Стартовые цены для первых проектов ниже среднерыночных за счёт быстрого процесса. Точная сумма считается после брифа.',
 
     'calc.inc.landing.base': [
       'До 5 блоков на странице',
@@ -126,7 +125,7 @@ export const dict = {
       'Три круга правок после сдачи',
     ],
     'calc.inc.design.base': [
-      'Один ключевой экран — концепция',
+      'Один ключевой экран: концепция',
       'Десктопная версия',
       'HTML-прототип и PNG',
       'Один круг правок',
@@ -149,13 +148,13 @@ export const dict = {
       'До 50 товаров, без сложной фильтрации',
       'Каталог, корзина и оформление заказа',
       'Один способ оплаты на сайте',
-      'Простая CMS для товаров — уже входит',
+      'Простая CMS для товаров входит в тариф',
       'Личный кабинет с историей заказов',
       'Один круг правок после сдачи',
     ],
     'calc.inc.shop.standard': [
       'До 300 товаров: категории, фильтры и поиск',
-      'Варианты товара — размер, цвет',
+      'Варианты товара: размер, цвет',
       'Избранное и промокоды',
       'Оплата картой и через СБП',
       'Статусы заказов и уведомления в Telegram',
@@ -178,113 +177,111 @@ export const dict = {
     'calc.inc.cms': 'Панель редактирования на Decap CMS',
 
     'admin.badge': 'Как это выглядит у клиента',
-    'admin.title': 'Админка, а не звонок разработчику',
+    'admin.title': 'Админка вместо звонка разработчику',
     'admin.colName': 'Позиция',
     'admin.colPrice': 'Цена',
     'admin.colState': 'Показ',
     'admin.pinPrice': 'Цена правится в строке',
-    'admin.pinState': 'Снять с витрины — один тумблер',
+    'admin.pinState': 'Снять с витрины одним тумблером',
     'admin.text':
-      'Так устроена панель Маки-Маки. Сезонное блюдо убирается с витрины тумблером, цена меняется прямо в строке — правки не копятся до вечера и не стоят отдельных денег.',
+      'Так устроена панель Маки-Маки. Сезонное блюдо убирается с витрины тумблером, цена меняется прямо в строке. Правки не копятся до вечера и не стоят отдельных денег.',
 
     'stack.badge': 'Стек',
     'stack.title': 'На чём собираем',
     'stack.text':
-      'Стек выбирается под задачу, а не наоборот. Этот сайт, например, собран без фреймворка — одностраничнику не нужен роутинг, а лишний слой только замедлил бы загрузку.',
+      'Стек выбирается под задачу. Этот сайт, например, собран без фреймворка: одностраничнику не нужен роутинг, а лишний слой только замедлил бы загрузку.',
 
     'int.badge': 'Интеграции',
     'int.title': 'Куда уходит заявка',
     'int.telegram': 'Заявка падает в чат за секунду после отправки',
-    'int.crm': 'Передача сделок по API — токен даёте вы, настройку делаем мы',
-    'int.analytics': 'Счётчик и цели на кнопках и формах, а не «просто установлен»',
+    'int.crm': 'Сделки передаются по API: токен даёте вы, настройку делаем мы',
+    'int.analytics': 'Счётчик и цели на кнопках и формах, чтобы считать заявки',
 
     'bots.label': 'Боты',
     'bot.title': 'Во сколько обойдётся бот',
     'bots.lede':
-      'Второй живой калькулятор на этой странице — не просто демонстрация: похожий модуль можно встроить и в ваш сайт.',
+      'Этот калькулятор не просто демонстрация. Такой же модуль можно встроить в ваш сайт.',
     'bot.messengerLabel': 'Мессенджер',
     'bot.messenger.telegram': 'Telegram',
     'bot.messenger.max': 'MAX',
     'bot.messenger.both': 'Telegram + MAX',
     'bot.disclaimerSurcharge': 'Плюс 20% к цене при выборе Telegram и MAX сразу.',
-    'bot.disclaimerBrief': 'Точная стоимость — после брифа.',
+    'bot.disclaimerBrief': 'Точная стоимость определяется после брифа.',
     'bot.tier.base.forWhom':
-      'Консультации и запись без истории диалога — например, студия детейлинга, как у Dark Glass, или барбершоп с одним мастером, как у Boss Volos, а также услуги, которые считаются «на глаз».',
+      'Консультации и запись без истории диалога. Подойдёт студии детейлинга, как у Dark Glass, барбершопу с одним мастером, как у Boss Volos, и услугам, которые считаются на глаз.',
     'bot.tier.standard.forWhom':
-      'Запись с выбором мастера, временем и напоминаниями — для барбершопа с несколькими мастерами, либо мини-магазин в чате с корзиной, как у Маки-Маки.',
+      'Запись с выбором мастера, времени и напоминаниями для барбершопа с несколькими мастерами. Или мини-магазин в чате с корзиной, как у Маки-Маки.',
     'bot.tier.premium.forWhom':
-      'Бот сам ведёт диалог — квалифицирует лида для B2B и передаёт заявку менеджеру (в этом духе работает Groq Assistant), либо берёт на себя внутреннюю рутину вроде черновиков контента на согласование.',
+      'Бот сам ведёт диалог: квалифицирует лида для B2B и передаёт заявку менеджеру (в этом духе работает Groq Assistant) или берёт на себя внутреннюю рутину вроде черновиков контента на согласование.',
     'bot.proofLabel': 'Уже работает:',
     'bot.proofOpen': 'открыть в Telegram',
 
     'process.label': 'Процесс',
     'process.title': 'Четыре шага от брифа до публикации',
     'process.lede':
-      'Отсчёт срока идёт с момента, когда получены бриф и материалы. Оплата — половина до старта, половина после сдачи; для интернет-магазина — тремя этапами (30/40/30%) из-за большего объёма работ.',
+      'Отсчёт срока идёт с момента, когда получены бриф и материалы. Оплата: половина до старта, половина после сдачи. Для интернет-магазина три этапа (30/40/30%) из-за большего объёма работ.',
     'process.s1.title': 'Бриф и структура',
     'process.s1.text':
       'Разбираем цель, продукт и аудиторию, смотрим двух-трёх конкурентов. Собираем схему блоков и согласуем логику страницы до того, как рисовать.',
     'process.s2.title': 'Дизайн ключевых экранов',
     'process.s2.text':
-      'Отрисовываем один-два главных экрана и утверждаем стиль. Остальные блоки оформляются в той же системе — шрифты и компоненты переиспользуются.',
+      'Отрисовываем один-два главных экрана и утверждаем стиль. Остальные блоки оформляются в той же системе: шрифты и компоненты переиспользуются.',
     'process.s3.title': 'Вёрстка и интеграции',
     'process.s3.text':
       'Верстаем на коде, адаптируем под телефон и планшет, подключаем анимации, форму заявки, уведомления в Telegram и аналитику.',
     'process.s4.title': 'Публикация и правки',
     'process.s4.text':
-      'Проверяем на реальных устройствах, публикуем, привязываем домен. Дальше — согласованные круги правок и помощь с мелочами первые две недели.',
+      'Проверяем на реальных устройствах, публикуем, привязываем домен. Затем согласованные круги правок и помощь с мелочами первые две недели.',
 
     'contact.label': 'Контакты',
     'contact.title': 'Расскажите, что нужно сделать',
     'contact.text':
-      'Напишите в Telegram пару строк о задаче — отвечаем сами, без ботов и анкет на двадцать полей. Если по срокам или бюджету не сойдёмся, скажем сразу.',
-    'contact.cta': 'Написать в Telegram',
+      'Напишите в Telegram пару строк о задаче. Отвечаем сами, без ботов и анкет на двадцать полей. Если по срокам или бюджету не сойдёмся, скажем сразу.',
 
-    'footer.note': 'Студия веб-разработки. Ключевой кадр — тот, с которого начинается движение.',
+    'footer.note': 'Сайты и боты на чистом коде. Ключевой кадр: тот, с которого начинается движение.',
     'footer.privacy': 'Политика конфиденциальности',
     'footer.oferta': 'Публичная оферта',
   },
 
   en: {
-    'meta.title': 'Keyframe — web development studio',
+    'meta.title': 'Keyframe: sites and bots, hand-coded',
     'meta.description':
-      'Keyframe is a web development studio. Hand-coded landing pages, multi-page sites and chat bots: 3D, animation, Telegram and CRM integrations. Live in two working days.',
+      'Keyframe: sites and bots, hand-coded. Landing pages, multi-page sites and chat bots with 3D, animation, and Telegram and CRM integrations. Sites go live from 3 working days.',
 
     'nav.skip': 'Skip to content',
     'nav.work': 'Work',
     'nav.capabilities': 'Capabilities',
     'nav.process': 'Process',
     'nav.contact': 'Contact',
-    'nav.cta': 'Start a project',
+    'cta.primary': 'Start a project',
+    'cta.secondary': 'See the work',
     'nav.menu': 'Menu',
 
-    'hero.eyebrow': 'Web development studio',
+    'hero.eyebrow': 'Sites and bots, hand-coded',
     'hero.lede':
-      'Hand-coded sites and chat bots, not page builders: <strong>landing pages, multi-page sites, bots, 3D and motion</strong>. Copy, design and build — one team, start to launch.',
-    'hero.ctaPrimary': 'See the work',
-    'hero.ctaSecondary': 'Message on Telegram',
+      '<strong>Landing pages, multi-page sites, bots, 3D and motion.</strong> The full cycle, from copy and design to launch.',
     'hero.meta1': 'Four sites in production',
-    'hero.meta2': 'From 2 working days',
-    'hero.meta3': 'Code, not page builders',
+    'hero.meta2': 'From 3 working days',
+    'hero.meta3': 'Code without page builders',
     'hero.scroll': 'Scroll',
 
     'work.label': 'Work',
     'work.title': 'Four sites, four different problems',
     'work.lede':
-      'All four are live — the links open, the forms send, the prices are real. What follows is the problem each one solved, not a feature list.',
+      'All four are live: the links open, the forms send, the prices are real. Below is the problem each project solved.',
     'work.open': 'Open the site',
     'work.card3.kind': 'Catalogue with admin panel',
     'work.card3.text':
-      'A food delivery menu of fifty-plus items. The hard part was not the storefront but letting the owner change prices and dishes without us: a Next.js catalogue, cart and admin panel where an item is edited in half a minute.',
+      'A food delivery menu of fifty-plus items. The main job was letting the owner change prices and dishes without us: a Next.js catalogue, cart and admin panel where an item is edited in half a minute.',
     'work.card3.tag': 'Admin panel',
     'work.card3.alt': 'Home screen of the Maki-Maki delivery site',
     'brand.makiMaki': 'Maki-Maki',
     'work.card1.kind': 'Premium car detailing',
     'work.card1.text':
-      'Detailing studios usually hide prices until an inspection, and that costs them bookings. This one does the opposite: six services with ranges by body size, right on the page — the client budgets in advance and arrives already decided.',
+      'Detailing studios usually hide prices until an inspection, and that costs them bookings. This one does the opposite: six services with ranges by body size, right on the page. The client budgets in advance and arrives already decided.',
     'work.card2.kind': "Barber's one-page site",
     'work.card2.text':
-      'One barber against the chains. Competing on price makes no sense, so the site competes on voice: it reads the way she talks in the chair, and every price is fixed up front — no upselling mid-haircut.',
+      'One barber against the chains. Competing on price makes no sense, so the site competes on voice: it reads the way she talks in the chair, and every price is fixed up front, with no upselling mid-haircut.',
     'work.card2.tag': 'Motion',
     'work.card4.kind': 'Webinar checkout page',
     'work.card4.text':
@@ -294,7 +291,7 @@ export const dict = {
     'cap.label': 'Capabilities',
     'cap.title': 'What the stack actually gives you',
     'cap.lede':
-      'Price a project right here, then look at the panel the owner uses to edit their own site. Both blocks work — neither is a screenshot.',
+      'Price a project right here, then look at the panel the owner uses to edit their own site. Both blocks work.',
 
     'calc.badge': 'Live widget',
     'calc.title': 'A quote in a minute',
@@ -310,13 +307,13 @@ export const dict = {
     'calc.extrasLabel': 'Add-ons',
     'calc.cms': 'Panel for editing the site yourself',
     'calc.cmsNote': 'Change text and photos without a developer',
-    'calc.cmsNoteOff': 'Not applicable to a mockup — the site is not built yet',
+    'calc.cmsNoteOff': 'Not applicable to a mockup: the site is not built yet',
     'calc.cmsNoteIncluded': 'A simple CMS is already included in every store tier',
     'calc.exclLabel': 'Not included by default',
     'calc.from': 'from',
     'calc.days': 'working days',
     'calc.disclaimer':
-      'Starting rates for our first projects — below market because the process is fast. The exact figure is set after the brief.',
+      'Starting rates for our first projects are below market because the process is fast. The exact figure is set after the brief.',
 
     'calc.inc.landing.base': [
       'Up to 5 blocks on the page',
@@ -362,7 +359,7 @@ export const dict = {
       'Three rounds of revisions after handover',
     ],
     'calc.inc.design.base': [
-      'One key screen — the concept',
+      'One key screen: the concept',
       'Desktop version',
       'HTML prototype and PNG',
       'One round of revisions',
@@ -385,13 +382,13 @@ export const dict = {
       'Up to 50 products, no complex filtering',
       'Catalogue, cart and checkout',
       'One payment method on the site',
-      'Simple CMS for products — already included',
+      'Simple CMS for products is included',
       'Customer account with order history',
       'One round of revisions after handover',
     ],
     'calc.inc.shop.standard': [
       'Up to 300 products: categories, filters and search',
-      'Product variants — size, colour',
+      'Product variants: size, colour',
       'Wishlist and promo codes',
       'Card payment and SBP',
       'Order statuses and Telegram notifications',
@@ -414,30 +411,30 @@ export const dict = {
     'calc.inc.cms': 'Decap CMS editing panel',
 
     'admin.badge': 'What the client sees',
-    'admin.title': 'An admin panel, not a call to the developer',
+    'admin.title': 'An admin panel instead of a call to the developer',
     'admin.colName': 'Item',
     'admin.colPrice': 'Price',
     'admin.colState': 'Live',
     'admin.pinPrice': 'Price edits inline',
     'admin.pinState': 'One toggle pulls it off the menu',
     'admin.text':
-      "This is Maki-Maki's panel. A seasonal dish comes off the menu with a toggle and the price changes inline — edits don't pile up until evening and don't cost extra.",
+      "This is Maki-Maki's panel. A seasonal dish comes off the menu with a toggle and the price changes inline. Edits don't pile up until evening and don't cost extra.",
 
     'stack.badge': 'Stack',
     'stack.title': 'What we build with',
     'stack.text':
-      'The stack follows the problem, not the other way round. This site, for instance, runs without a framework — a one-pager needs no routing, and the extra layer would only slow it down.',
+      'The stack follows the problem. This site, for instance, runs without a framework: a one-pager needs no routing, and the extra layer would only slow it down.',
 
     'int.badge': 'Integrations',
     'int.title': 'Where the enquiry lands',
     'int.telegram': 'The enquiry hits your chat a second after it is sent',
-    'int.crm': 'Deals passed over the API — you supply the token, we do the setup',
-    'int.analytics': 'Counter plus goals on buttons and forms, not just "installed"',
+    'int.crm': 'Deals passed over the API: you supply the token, we do the setup',
+    'int.analytics': 'Counter plus goals on buttons and forms, so you can count enquiries',
 
     'bots.label': 'Bots',
     'bot.title': 'What a bot would cost',
     'bots.lede':
-      "The second live calculator on this page isn't just a demo — a similar module can be built into your site too.",
+      "This calculator isn't just a demo. The same module can be built into your site.",
     'bot.messengerLabel': 'Messenger',
     'bot.messenger.telegram': 'Telegram',
     'bot.messenger.max': 'MAX',
@@ -446,24 +443,24 @@ export const dict = {
     'bot.disclaimerSurcharge': '',
     'bot.disclaimerBrief': 'The exact figure is set after the brief.',
     'bot.tier.base.forWhom':
-      'Consultations and bookings with no dialogue history — a detailing studio like Dark Glass, or a one-barber shop like Boss Volos, plus services usually quoted by eye.',
+      'Consultations and bookings with no dialogue history. Fits a detailing studio like Dark Glass, a one-barber shop like Boss Volos, and services usually quoted by eye.',
     'bot.tier.standard.forWhom':
-      'Booking with a choice of stylist, time slot and reminders — for a multi-chair barbershop, or an in-chat cart like Maki-Maki\'s delivery menu.',
+      'Booking with a choice of stylist, time slot and reminders for a multi-chair barbershop. Or an in-chat cart like Maki-Maki\'s delivery menu.',
     'bot.tier.premium.forWhom':
-      'The bot runs the conversation itself — qualifying a B2B lead and handing it to a manager (roughly how Groq Assistant works), or taking over internal routine work like drafting content for approval.',
+      'The bot runs the conversation itself: it qualifies a B2B lead and hands it to a manager (roughly how Groq Assistant works), or takes over internal routine work like drafting content for approval.',
     'bot.proofLabel': 'Already live:',
     'bot.proofOpen': 'open on Telegram',
 
     'process.label': 'Process',
     'process.title': 'Four steps from brief to launch',
     'process.lede':
-      'The clock starts when the brief and materials arrive. Payment is half up front, half on handover — for an online store, it splits into three stages (30/40/30%) to match the larger scope.',
+      'The clock starts when the brief and materials arrive. Payment is half up front, half on handover. For an online store it splits into three stages (30/40/30%) to match the larger scope.',
     'process.s1.title': 'Brief and structure',
     'process.s1.text':
       'We go through the goal, the product and the audience, and look at two or three competitors. Then we map the blocks and agree the page logic before anything is drawn.',
     'process.s2.title': 'Key screens designed',
     'process.s2.text':
-      'We design one or two main screens and lock the style. The rest is built in the same system — type and components get reused.',
+      'We design one or two main screens and lock the style. The rest is built in the same system, so type and components get reused.',
     'process.s3.title': 'Build and integrations',
     'process.s3.text':
       'We hand-code it, adapt it for phone and tablet, then wire up the animation, the enquiry form, Telegram notifications and analytics.',
@@ -474,10 +471,9 @@ export const dict = {
     'contact.label': 'Contact',
     'contact.title': 'Tell us what needs building',
     'contact.text':
-      'Send a couple of lines about the project on Telegram — you get a person, not a bot or a twenty-field form. If the timeline or budget does not work, we say so straight away.',
-    'contact.cta': 'Message on Telegram',
+      'Send a couple of lines about the project on Telegram. You talk to a person, with no bots or twenty-field forms. If the timeline or budget does not work, we say so straight away.',
 
-    'footer.note': 'Web development studio. A keyframe is where the movement starts.',
+    'footer.note': 'Sites and bots, hand-coded. A keyframe is where the movement starts.',
     // Сами документы остаются только на русском — это юридический текст под
     // конкретную юрисдикцию (152-ФЗ, самозанятость), переводить нечего;
     // переведена только подпись ссылки, чтобы EN-посетитель понимал, куда идёт
