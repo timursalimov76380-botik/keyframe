@@ -44,7 +44,28 @@ for (const family of FAMILIES) {
     const remote = face.match(/url\((https:[^)]+\.woff2)\)/)?.[1];
     if (!remote) continue;
 
-    const slug = `${family.name.toLowerCase().replace(/\s+/g, '-')}-${subset}.woff2`;
+    const base = family.name.toLowerCase().replace(/\s+/g, '-');
+
+    // Из latin-ext на сайте нужен ровно один символ — ₽ в ценах. Целиком файл весит
+    // до 116 КБ (Unbounded), и браузер качал его ради одного глифа. Вместо него
+    // подключаем урезанный до ₽ файл ~1 КБ; его делает fonttools из latin-ext:
+    //   pyftsubset <base>-latin-ext.woff2 --unicodes=U+20BD --flavor=woff2 \
+    //     --layout-features='*' --output-file=<base>-rub.woff2
+    // Если на сайте появятся другие символы из latin-ext (ŝ, €-подобные знаки валют),
+    // их нужно добавить в --unicodes и в unicode-range ниже.
+    if (subset === 'latin-ext') {
+      const rub = `${base}-rub.woff2`;
+      chunks.push(
+        face
+          .replace(/url\(https:[^)]+\.woff2\)/, `url('/fonts/${rub}')`)
+          .replace(/unicode-range:[^;]+;/, 'unicode-range: U+20BD;')
+          .trim() + '\n',
+      );
+      console.log(`ok  ${family.name} / ₽  ->  ${rub}  (готовый файл, см. комментарий выше)`);
+      continue;
+    }
+
+    const slug = `${base}-${subset}.woff2`;
     const bin = await (await fetch(remote, { headers: { 'User-Agent': UA } })).arrayBuffer();
     await writeFile(path.join(fontDir, slug), Buffer.from(bin));
 

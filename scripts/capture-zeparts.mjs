@@ -4,8 +4,8 @@
  * превью проекта (в папке ZeParts: .venv/Scripts/python tools/build.py --serve → :8080).
  * node scripts/capture-zeparts.mjs [url]
  *
- * ffmpeg не нужен: кадры берём CDP-скринкастом, а в MP4 их собирает сам Chrome —
- * кадры проигрываются на canvas в исходном темпе и пишутся через MediaRecorder.
+ * ffmpeg не нужен: кадры берём CDP-скринкастом, кодируем в H.264 через WebCodecs
+ * в самом Chrome, а в MP4 упаковывает mp4-muxer (devDependency).
  *
  * Сценарий: курсор ходит по хиро (слои двигаются за мышью, бегут линии),
  * затем плавная прокрутка к карте и пауза, пока не пройдёт волна из Москвы.
@@ -163,9 +163,8 @@ await page.close();
 const span = frames.at(-1).t - frames[0].t;
 console.log(`кадров ${frames.length} за ${span.toFixed(1)} с (~${(frames.length / span).toFixed(0)} к/с)`);
 
-// Скринкаст отдаёт кадры неравномерно и местами чаще 60 в секунду — кодировщик
-// в реальном времени за таким не успевает и видео растягивается. Прореживаем
-// до ровных 30 к/с: на каждый тик берём последний кадр, пришедший к этому моменту.
+// Скринкаст отдаёт кадры неравномерно и местами чаще 60 в секунду. Приводим к ровным
+// 30 к/с: на каждый тик берём последний кадр, пришедший к этому моменту.
 const FPS = 30;
 const timeline = [];
 for (let t = 0, i = 0; t <= span; t += 1 / FPS) {
@@ -174,15 +173,18 @@ for (let t = 0, i = 0; t <= span; t += 1 / FPS) {
 }
 
 // ── 3. Сборка MP4 ────────────────────────────────────────────────────────
+// WebCodecs кодирует кадры по одному с точными метками времени (не в реальном времени,
+// поэтому видео не растягивается), а mp4-muxer пишет обычный MP4 с длительностью
+// и индексом в начале файла. Раньше здесь был MediaRecorder, но он пишет
+// фрагментированный MP4 с нулевой длительностью в заголовке: Chrome это прощает,
+// а Safari и Firefox не находят конец ролика, и loop не срабатывает.
 const enc = await browser.newPage();
+await enc.goto(url, { waitUntil: 'domcontentloaded' }); // WebCodecs работает только в защищённом контексте, localhost подходит
+await enc.addScriptTag({ path: path.join(root, 'node_modules', 'mp4-muxer', 'build', 'mp4-muxer.js') });
 await enc.exposeFunction('getFrame', (i) => frames[timeline[i]]?.data ?? null);
 const b64 = await enc.evaluate(
   async ({ count, fps, out, bitrate }) => {
-    const canvas = document.createElement('canvas');
-    canvas.width = out.width;
-    canvas.height = out.height;
-    document.body.append(canvas);
-    const ctx = canvas.getContext('2d');
+    const { Muxer, ArrayBufferTarget } = window.Mp4Muxer;
 
     const decode = async (i) => {
       const b = await window.getFrame(i);
@@ -190,41 +192,51 @@ const b64 = await enc.evaluate(
       return createImageBitmap(blob, { resizeWidth: out.width, resizeHeight: out.height, resizeQuality: 'high' });
     };
 
-    const mime = MediaRecorder.isTypeSupported('video/mp4;codecs=avc1.4d002a')
-      ? 'video/mp4;codecs=avc1.4d002a'
-      : 'video/mp4';
-    const stream = canvas.captureStream(fps);
-    const rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: bitrate });
-    const chunks = [];
-    rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
-    const done = new Promise((r) => (rec.onstop = r));
-
-    let next = decode(0);
-    ctx.drawImage(await next, 0, 0);
-    rec.start(1000);
-    const t0 = performance.now();
-    for (let i = 0; i < count; i++) {
-      const bmp = await next;
-      if (i + 1 < count) next = decode(i + 1);
-      const wait = (i * 1000) / fps - (performance.now() - t0);
-      if (wait > 0) await new Promise((r) => setTimeout(r, wait));
-      ctx.drawImage(bmp, 0, 0);
-      bmp.close();
+    let config = null;
+    for (const codec of ['avc1.4d002a', 'avc1.42002a']) {
+      const c = { codec, width: out.width, height: out.height, bitrate, framerate: fps, avc: { format: 'avc' } };
+      if ((await VideoEncoder.isConfigSupported(c)).supported) { config = c; break; }
     }
-    await new Promise((r) => setTimeout(r, 300));
-    rec.stop();
-    await done;
+    if (!config) throw new Error('H.264 в WebCodecs недоступен');
 
-    const buf = new Uint8Array(await new Blob(chunks, { type: mime }).arrayBuffer());
+    const muxer = new Muxer({
+      target: new ArrayBufferTarget(),
+      video: { codec: 'avc', width: out.width, height: out.height, frameRate: fps },
+      fastStart: 'in-memory',
+    });
+    let failure = null;
+    const encoder = new VideoEncoder({
+      output: (chunk, meta) => muxer.addVideoChunk(chunk, meta),
+      error: (e) => (failure = e),
+    });
+    encoder.configure(config);
+
+    const step = 1e6 / fps;
+    for (let i = 0; i < count; i++) {
+      const bmp = await decode(i);
+      const frame = new VideoFrame(bmp, { timestamp: Math.round(i * step), duration: Math.round(step) });
+      // ключевой кадр раз в 2 секунды и обязательно на первом — с него начинается каждый круг
+      encoder.encode(frame, { keyFrame: i % (fps * 2) === 0 });
+      frame.close();
+      bmp.close();
+      if (failure) throw failure;
+      while (encoder.encodeQueueSize > 8) await new Promise((r) => setTimeout(r, 5));
+    }
+    await encoder.flush();
+    if (failure) throw failure;
+    muxer.finalize();
+
+    const buf = new Uint8Array(muxer.target.buffer);
     let s = '';
     for (let i = 0; i < buf.length; i += 0x8000) s += String.fromCharCode(...buf.subarray(i, i + 0x8000));
-    return btoa(s);
+    return { b64: btoa(s), codec: config.codec };
   },
   { count: timeline.length, fps: FPS, out: OUT, bitrate: BITRATE },
 );
 
 const file = path.join(outDir, 'zeparts.mp4');
-await writeFile(file, Buffer.from(b64, 'base64'));
-console.log(`ok  видео  ->  public/work/zeparts.mp4  (${(Buffer.byteLength(b64, 'base64') / 1024 / 1024).toFixed(1)} МБ)`);
+const bytes = Buffer.from(b64.b64, 'base64');
+await writeFile(file, bytes);
+console.log(`ok  видео  ->  public/work/zeparts.mp4  (${(bytes.length / 1024 / 1024).toFixed(1)} МБ, ${b64.codec}, ${(timeline.length / FPS).toFixed(1)} с)`);
 
 await browser.close();
