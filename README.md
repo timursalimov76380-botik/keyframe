@@ -63,6 +63,8 @@ Vite собирает только `index.html`.
 node scripts/fetch-fonts.mjs    # перекачать шрифты с Google Fonts в public/fonts
 npm run shots                   # пересобрать превью работ в public/work
 npm run og                      # переснять баннер для соцсетей public/og-image.jpg (нужен npm run dev)
+node scripts/capture-zeparts.mjs  # видео и постер кейса Zeparts; нужен запущенный превью-сервер
+                                  # проекта ZeParts (tools/build.py --serve, порт 8080), ffmpeg не нужен
 node scripts/shot-dev.mjs       # скриншоты страницы в трёх размерах → .shots/
 node scripts/audit.mjs          # контраст, табуляция, ARIA
 ```

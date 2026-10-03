@@ -22,16 +22,21 @@ export const dict = {
     'hero.eyebrow': 'Сайты и боты на чистом коде',
     'hero.lede':
       '<strong>Лендинги, многостраничники, боты, 3D и анимация.</strong> Полный цикл: от текста и дизайна до публикации.',
-    'hero.meta1': 'Четыре сайта в проде',
+    'hero.meta1': 'Анимации своей разработки',
     'hero.meta2': 'От 3 рабочих дней',
     'hero.meta3': 'Код без конструкторов',
     'hero.scroll': 'Листайте',
 
     'work.label': 'Работы',
-    'work.title': 'Четыре сайта, четыре разные задачи',
+    // Без числа проектов и без «в проде»: иначе каждый новый кейс тянет правку текста
+    'work.title': 'Каждый сайт решает свою задачу',
     'work.lede':
-      'Все четыре работают в проде: ссылки открываются, формы отправляют, цены настоящие. Ниже описано, какую задачу решал каждый проект.',
+      'Ниже описано, какую задачу решал каждый проект. Где сайт уже запущен, есть ссылка: откройте и проверьте сами.',
     'work.open': 'Открыть сайт',
+    'work.handedOver': 'Передано заказчику',
+    'work.card5.kind': 'Вёрстка по Figma и анимации',
+    'work.card5.text':
+      'B2B-агрегатор автозапчастей: поиск по артикулу и VIN, кабинеты покупателя и поставщика, заказ с доставкой СДЭК. Сверстали больше 60 экранов пиксель в пиксель по макету из Figma. Анимации придумали сами: хиро двигается за курсором, а по карте расходится волна доставки из Москвы. Мобильную версию тоже собрали сами, из макета был только UI-Kit.',
     'work.card3.kind': 'Каталог с админкой',
     'work.card3.text':
       'Доставка еды с меню на пятьдесят с лишним позиций. Главной задачей было дать владельцу менять состав и цены самому: каталог, корзина и админка на Next.js, где блюдо правится за полминуты и без разработчика.',
@@ -260,16 +265,20 @@ export const dict = {
     'hero.eyebrow': 'Sites and bots, hand-coded',
     'hero.lede':
       '<strong>Landing pages, multi-page sites, bots, 3D and motion.</strong> The full cycle, from copy and design to launch.',
-    'hero.meta1': 'Four sites in production',
+    'hero.meta1': 'Custom-built animation',
     'hero.meta2': 'From 3 working days',
     'hero.meta3': 'Code without page builders',
     'hero.scroll': 'Scroll',
 
     'work.label': 'Work',
-    'work.title': 'Four sites, four different problems',
+    'work.title': 'Every site solves its own problem',
     'work.lede':
-      'All four are live: the links open, the forms send, the prices are real. Below is the problem each project solved.',
+      "Below is the problem each project solved. Where a site is live, there's a link: open it and check for yourself.",
     'work.open': 'Open the site',
+    'work.handedOver': 'Handed over to the client',
+    'work.card5.kind': 'Figma build and motion',
+    'work.card5.text':
+      'A B2B auto parts marketplace: search by part number and VIN, buyer and supplier dashboards, checkout with CDEK delivery. We built 60+ screens pixel-perfect from the Figma file. The animation is our own: the hero follows the cursor, and a delivery wave spreads across the map from Moscow. We also built the mobile version ourselves, working from a mobile UI kit alone.',
     'work.card3.kind': 'Catalogue with admin panel',
     'work.card3.text':
       'A food delivery menu of fifty-plus items. The main job was letting the owner change prices and dishes without us: a Next.js catalogue, cart and admin panel where an item is edited in half a minute.',
