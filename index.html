@@ -128,13 +128,15 @@
 
           <div class="work-grid">
             <!-- Публичной ссылки нет: вёрстку передали заказчику архивом, сайт запускается
-                 на его стороне. Видео снято с локального превью — scripts/capture-zeparts.mjs -->
+                 на его стороне. Видео снято с локального превью — scripts/capture-zeparts.mjs.
+                 /work/* кэшируется на 30 дней: после перезаписи видео поднимайте ?v=, иначе
+                 вернувшиеся посетители так и будут смотреть старый файл -->
             <article class="work-card work-card--lead" data-reveal>
               <div class="work-card__media">
                 <video
                   class="work-card__video"
                   data-autoplay
-                  src="/work/zeparts.mp4"
+                  src="/work/zeparts.mp4?v=2"
                   data-poster="/work/zeparts.webp"
                   muted
                   loop
